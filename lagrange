@@ -26,3 +26,15 @@ sum=sum+term*y[i];
 }
 printf("\nvalue at x=%g is=%f",x,sum);
 }
+
+op-
+enter no. of terms
+4
+enter the values of x
+5 6 9 11
+enter the values of y
+12 13 14 16
+enter values of x for which you want y
+10
+
+value at x=10 is=14.666668
