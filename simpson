@@ -1,0 +1,32 @@
+#include<stdio.h>
+
+float f(float x){
+return 1/(1+x*x);
+}
+
+int main(){
+int n;
+float i,a,b,sum=0,h;
+int pos=1;
+printf("enter value of a and b\n");
+scanf("%f%f",&a,&b);
+printf("enter the no. of intervals\n");
+scanf("%d",&n);
+h=(b-a)/n;
+sum=f(a)+f(b);
+for(i=a+h;i<b;i=i+h){
+if(pos%2==0)
+sum=sum+2*f(i);
+else
+sum=sum+4*f(i);
+pos++;
+}
+sum=(h*sum)/3;
+printf("value of integral =%f",sum);
+}
+
+op-enter value of a and b
+0 6
+enter the no. of intervals
+6
+value of integral =1.366174
