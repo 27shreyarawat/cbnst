@@ -1,0 +1,64 @@
+enter no. of terms
+7
+Enter values of X
+100 150 200 250 300 350 400
+enter values of Y
+10.63 13.03
+15.04 16.81 18.42 19.90 21.27
+enter value of x for which you want y
+218
+the difference table is as follows:
+100.000000 10.630000 2.400000 -0.389999 0.149999 -0.069997 0.019993 
+150.000000 13.030000 2.010000 -0.240001 0.080002 -0.050004 
+200.000000 15.040000 1.770000 -0.159999 0.029998 
+250.000000 16.809999 1.610001 -0.130001 
+300.000000 18.420000 1.480000 
+350.000000 19.900000 
+400.000000 
+
+
+value at x=218 is 15.699373
+
+code-
+#include<stdio.h>
+#include<math.h>
+
+ int main(){
+float x,u1,u,y;
+int i,j,n,fact;
+printf("enter no. of terms\n");
+scanf("%d",&n);
+float a[n][n+1];
+printf("Enter values of X\n");
+for(int i=0;i<n;i++)
+scanf("%f",&a[i][0]);
+printf("enter values of Y\n");
+for(i=0;i<n;i++)
+scanf("%f",&a[i][1]);
+printf("enter value of x for which you want y\n");
+scanf("%f",&x);
+
+for(j=2;j<n+1;j++){
+for(i=0;i<n-j+1;i++)
+a[i][j]=a[i+1][j-1]-a[i][j-1];
+}
+printf("the difference table is as follows:\n");
+for(i=0;i<n;i++){
+for(j=0;j<n-i;j++)
+printf("%f ",a[i][j]);
+printf("\n");
+}
+
+u=(x-a[0][0])/(a[1][0]-a[0][0]);
+
+y=a[0][1];
+u1=u;
+fact=1;
+for(i=2;i<n;i++){
+y=y+(u1*a[0][i])/fact;
+
+fact=fact*i;
+u1=u1*(u-(i-1));
+}
+printf("\n\nvalue at x=%g is %f",x,y);
+}
