@@ -1,0 +1,29 @@
+//trapezodial
+#include<stdio.h>
+
+float f(float x){
+return 1/(1+x*x);
+}
+
+int main(){
+int n;
+float i,a,b,sum=0,h;
+printf("enter the value of a and b\n");
+scanf("%f%f",&a,&b);
+printf("enter the number of intervals\n");
+scanf("%d",&n);
+h=(b-a)/n;
+sum=f(a)+f(b);
+for(i=a+h;i<b;i=i+h)
+sum=sum+2*f(i);
+sum=(h*sum)/2;
+printf("\nvalue of intergral=%f",sum);
+}
+
+op-enter the value of a and b
+0 6
+enter the number of intervals
+6
+
+value of intergral=1.410799
+
